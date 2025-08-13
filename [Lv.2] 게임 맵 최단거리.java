@@ -51,6 +51,6 @@ class Solution {
             }
         }
         
-        return (countingArray[N - 1][M - 1] == INF ? -1 : countingArray[N - 1][M - 1]);
+        return countingArray[N - 1][M - 1] != INF ? countingArray[N - 1][M - 1] : -1;
     }
 }
