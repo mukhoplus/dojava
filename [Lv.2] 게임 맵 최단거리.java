@@ -23,14 +23,12 @@ class Solution {
         int M = maps[0].length;
         
         Deque<Pair> dq = new ArrayDeque<>();
-        boolean[][] visited = new boolean[N][M];
         int[][] countingArray = new int[N][M];
         for (int i = 0; i < N; i++) {
             Arrays.fill(countingArray[i], INF);
         }
         
         dq.offerLast(new Pair(0, 0));
-        visited[0][0] = true;
         countingArray[0][0] = 1;
         
         while (!dq.isEmpty()) {
@@ -41,12 +39,10 @@ class Solution {
                 int ny = cur.y + dy[i];
                 
                 if (!inRange(nx, ny, N, M)) continue;
-                if (visited[nx][ny]) continue;
                 if (maps[nx][ny] == 0) continue;
-                if (countingArray[nx][ny] <= countingArray[cur.x][cur.y] + 1) continue;
+                if (countingArray[nx][ny] != INF) continue;
                 
                 dq.offerLast(new Pair(nx, ny));
-                visited[nx][ny] = true;
                 countingArray[nx][ny] = countingArray[cur.x][cur.y] + 1;
             }
         }
