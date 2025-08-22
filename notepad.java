@@ -53,6 +53,8 @@ class Notepad {
 		sb.append("u");
 		sb.append("k");
 		// return sb.toString();
+
+		public static int INF = (int) 1e9;
 	}
 
 	public static void main(String[] args) {
